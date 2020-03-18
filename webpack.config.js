@@ -13,6 +13,10 @@ module.exports = {
             {test : /\.css$/, use:['style-loader', 'css-loader']}
         ]
     },
+    devtool: 'inline-source-map',
+    devServer: {
+      contentBase: './dist',
+    },
     mode:'development',
     plugins : [
         new HtmlWebpackPlugin ({
