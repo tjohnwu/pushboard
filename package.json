@@ -2,7 +2,7 @@
   "name": "pushboard",
   "version": "1.0.0",
   "description": "A pushboard for web",
-  "main": "app/index.js",
+  "main": "app/app.js",
   "babel": {
     "presets" : [
       "@babel/preset-env",
