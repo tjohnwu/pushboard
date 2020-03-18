@@ -1,0 +1,22 @@
+{
+  "name": "pushboard",
+  "version": "1.0.0",
+  "description": "A pushboard for web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/origami7/pushboard.git"
+  },
+  "author": "johnwu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/origami7/pushboard/issues"
+  },
+  "homepage": "https://github.com/origami7/pushboard#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
