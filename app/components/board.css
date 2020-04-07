@@ -3,4 +3,5 @@
   height: 600px;
   background-color: black;
   border: 10px solid brown;
+  position: absolute;
 }
