@@ -1,1 +1,4 @@
-Start
+Setup Notes
+
+This will load the webapp into localhost
+npm start
