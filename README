@@ -1,4 +1,27 @@
+******************************************************************
 Setup Notes
+******************************************************************
 
 This will load the webapp into localhost
 npm start
+
+******************************************************************
+Project Plan
+==================================================================
+Feature List
+==================================================================
+Board Component
+ x Create Base Board
+ - Line Backgrounds
+
+Letter Components
+ - Create Base Component
+ - Font Selection
+ - Capital letter renders
+ - ...
+
+Drag and Drop functionality
+ - Drag and drop letter anywhere on board
+ - Drag and drop letter based on line component
+   - Sticky drag and drop based on line component
+ - 
