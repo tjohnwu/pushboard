@@ -5,6 +5,9 @@ Setup Notes
 This will load the webapp into localhost
 npm start
 
+Next steps let's add a second component and see if drag and drop 
+still works
+
 ******************************************************************
 Project Plan
 ==================================================================
@@ -15,7 +18,7 @@ Board Component
  - Line Backgrounds
 
 Letter Components
- - Create Base Component
+ x Create Base Component
  - Font Selection
  - Capital letter renders
  - ...
