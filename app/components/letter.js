@@ -56,7 +56,7 @@ class Letter extends React.Component {
         onMouseOut={() => this.setState({dragged: false})}
         style={{backgroundColor: this.state.dragged ? 'blue' : 'black'}}
         className={this.state.className}>
-        A
+        {this.props.value}
       </div>
     )
   }

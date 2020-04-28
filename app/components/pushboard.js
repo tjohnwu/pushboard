@@ -8,10 +8,10 @@ import Factory from './factory.js'
 class Pushboard extends React.Component {
   render() {
     return (
-      <div className="pushboard">
+      <div id="pushboard" className="pushboard">
         <Board />
         <Factory />
-        <Letter />
+        <Letter value='Q'/>
       </div>
     )
   }
