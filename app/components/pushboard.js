@@ -6,12 +6,17 @@ import Board from './board.js'
 import Factory from './factory.js'
 
 class Pushboard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {letters: ['A', 'B']};
+  }
+
   render() {
     return (
       <div id="pushboard" className="pushboard">
         <Board />
         <Factory />
-        <Letter value='Q'/>
+        {this.state.letters.map((letter) => <Letter value={letter} />)}
       </div>
     )
   }
