@@ -6,7 +6,10 @@ import './factory.css';
 class Factory extends React.Component {
   render() {
     return (
-      <div className="factory" />
+      <div className="factory">
+        <input class="letter-input" type="test" maxlength="1"/>
+        <input type="button" value="Add Letter" />
+      </div>
     )
   }
 }
