@@ -24,7 +24,8 @@ Letter Components
  - ...
 
 Drag and Drop functionality
- - Drag and drop letter anywhere on board
+ x Drag and drop letter anywhere on board
+ - Drag and drop styling
  - Drag and drop letter based on line component
    - Sticky drag and drop based on line component
  - 
