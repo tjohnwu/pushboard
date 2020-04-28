@@ -1,20 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Board from './components/board.js';
-import Letter from './components/letter.js';
-import Factory from './components/factory.js';
-
-import './app.css';
+import Pushboard from './components/pushboard.js';
 
 class App extends React.Component {
   render() {
     return (
-      <div className="container">
-        <Board />
-        <Letter />
-        <Factory />
-      </div>
+      <Pushboard />
     );
   }
 }

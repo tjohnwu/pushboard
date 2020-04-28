@@ -1,0 +1,4 @@
+.pushboard {
+    display: flex;
+    flex-direction: row;
+}
