@@ -5,7 +5,7 @@ Setup Notes
 This will load the webapp into localhost
 npm start
 
-Next steps let's add a second component and see if drag and drop 
+Next steps let's add a second component and see if drag and drop
 still works
 
 ******************************************************************
@@ -23,9 +23,14 @@ Letter Components
  - Capital letter renders
  - ...
 
+ Factory Component
+ - Create Base Component
+ - Letter manufacturing logic
+ - Leter deletion logic
+
 Drag and Drop functionality
  x Drag and drop letter anywhere on board
  - Drag and drop styling
  - Drag and drop letter based on line component
    - Sticky drag and drop based on line component
- - 
+ -
