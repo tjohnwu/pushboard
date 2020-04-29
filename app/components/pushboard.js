@@ -10,21 +10,27 @@ class Pushboard extends React.Component {
     super(props);
     this.state = {letters: []};
     this.addLetter = this.addLetter.bind(this);
+    this.clearLetters = this.clearLetters.bind(this);
   }
 
   addLetter(letter) {
-    console.log(this.state.letters);
     this.setState(state => {
       return {letters: state.letters.concat(letter)};
     });
+  }
+
+  clearLetters() {
+    this.setState(state => {
+      return {letters: []};
+    })
   }
 
   render() {
     return (
       <div id="pushboard" className="pushboard">
         <Board />
-        <Factory addLetter={this.addLetter}/>
-        {this.state.letters.map((letter) => <Letter value={letter} />)}
+        <Factory addLetter={this.addLetter} clearLetters={this.clearLetters}/>
+        {this.state.letters.map((key, letter) => <Letter value={letter} />)}
       </div>
     )
   }

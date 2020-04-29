@@ -7,7 +7,9 @@ class Factory extends React.Component {
   constructor(props) {
     super(props);
     this.props.addLetter.bind(this);
+    this.props.clearLetters.bind(this);
     this.handleAddLetterClick = this.handleAddLetterClick.bind(this);
+    this.handleLetterClear = this.handleLetterClear.bind(this);
   }
 
   handleAddLetterClick(e) {
@@ -15,11 +17,16 @@ class Factory extends React.Component {
     this.props.addLetter(value);
   }
 
+  handleLetterClear(e) {
+    this.props.clearLetters();
+  }
+
   render() {
     return (
       <div className="factory">
         <input id='letter-input' className="letter-input" type="test" maxLength="1"/>
         <input type="button" value="Add Letter" onClick={this.handleAddLetterClick}/>
+        <input type="button" value="Clear All" onClick={this.handleLetterClear}/>
       </div>
     )
   }
