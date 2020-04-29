@@ -8,14 +8,14 @@ import Factory from './factory.js'
 class Pushboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {letters: ['A', 'B']};
+    this.state = {letters: []};
     this.addLetter = this.addLetter.bind(this);
   }
 
-  addLetter(e) {
+  addLetter(letter) {
     console.log(this.state.letters);
     this.setState(state => {
-      return {letters: state.letters.concat('A')};
+      return {letters: state.letters.concat(letter)};
     });
   }
 
@@ -23,7 +23,7 @@ class Pushboard extends React.Component {
     return (
       <div id="pushboard" className="pushboard">
         <Board />
-        <Factory onAddLetterClick={this.addLetter}/>
+        <Factory addLetter={this.addLetter}/>
         {this.state.letters.map((letter) => <Letter value={letter} />)}
       </div>
     )
