@@ -9,10 +9,15 @@ class Letter extends React.Component {
       dragged: false,
       className: 'letter'
     };
+
+    this.letterComponent = React.createRef();
   };
 
-  stickyToMouse(event) {
-    var item = event.target;
+  componentDidMount() {
+    this.stickyToMouse(this.letterComponent.current);
+  }
+
+  stickyToMouse(item) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     item.onmousedown = dragMouseDown;
 
@@ -50,8 +55,7 @@ class Letter extends React.Component {
   render() {
     return (
       <div
-        id="letter"
-        onClick={() => this.stickyToMouse(event)}
+        ref={this.letterComponent}
         onMouseOver={() => this.setState({dragged: true})}
         onMouseOut={() => this.setState({dragged: false})}
         style={{backgroundColor: this.state.dragged ? 'blue' : 'black'}}

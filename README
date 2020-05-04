@@ -22,7 +22,7 @@ Letter Components
  x Font Selection (monospace required "Courier New")
  o Letter deletion logic
  o Letter placement logic (place somewhere in the middle of the board)
- o Letter movable on mount logic (instead of on first click)
+ x Letter movable on mount logic (instead of on first click)
  - ...
 
  Factory Component
