@@ -10,10 +10,12 @@ class Factory extends React.Component {
     this.props.clearLetters.bind(this);
     this.handleAddLetterClick = this.handleAddLetterClick.bind(this);
     this.handleLetterClear = this.handleLetterClear.bind(this);
+
+    this.letterInputComponent = React.createRef();
   }
 
   handleAddLetterClick(e) {
-    var value = document.getElementById("letter-input").value;
+    var value = this.letterInputComponent.current.value;
     this.props.addLetter(value);
   }
 
@@ -25,10 +27,10 @@ class Factory extends React.Component {
     return (
       <div className="factory">
         <input
-          id="letter-input"
           className="letter-input"
           type="input"
           maxLength="1"
+          ref={this.letterInputComponent}
         />
         <input
           type="button"
