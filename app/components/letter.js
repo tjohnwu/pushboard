@@ -76,7 +76,6 @@ class Letter extends React.Component {
           backgroundColor: this.state.dragged ? "blue" : "black",
           top: this.props.startingY,
           left: this.props.startingX,
-          padding: "10px",
         }}
         className={this.state.className}
       >
