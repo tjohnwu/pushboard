@@ -19,14 +19,15 @@ Board Component
 
 Letter Components
  x Create Base Component
- - Font Selection
- - Capital letter renders
+ o Font Selection (monospace required "Courier New")
+ o Letter deletion logic
+ o Letter placement logic (place somewhere in the middle of the board)
+ o Letter movable on mount logic (instead of on first click)
  - ...
 
  Factory Component
- - Create Base Component
- - Letter manufacturing logic
- - Leter deletion logic
+ x Create Base Component
+ x Letter manufacturing logic
 
 Drag and Drop functionality
  x Drag and drop letter anywhere on board
