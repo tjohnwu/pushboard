@@ -8,16 +8,20 @@ import Factory from "./factory.js";
 class Pushboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      letters: {},
-    };
     this.addLetter = this.addLetter.bind(this);
     this.clearLetters = this.clearLetters.bind(this);
+    this.deleteLetter = this.deleteLetter.bind(this);
 
     this.getKey = (() => {
       var counter = 0;
       return () => counter++;
     })();
+
+    var letters = {};
+    letters[this.getKey()] = "a";
+    this.state = {
+      letters: letters,
+    };
   }
 
   addLetter(letter) {
@@ -33,7 +37,15 @@ class Pushboard extends React.Component {
 
   clearLetters() {
     this.setState((state) => {
-      return { letters: [] };
+      return { letters: {} };
+    });
+  }
+
+  deleteLetter(key) {
+    var newLetters = Object.assign(this.state.letters);
+    delete newLetters[key];
+    this.setState((state) => {
+      return { letters: newLetters };
     });
   }
 
@@ -43,7 +55,12 @@ class Pushboard extends React.Component {
         <Board />
         <Factory addLetter={this.addLetter} clearLetters={this.clearLetters} />
         {Object.keys(this.state.letters).map((key) => (
-          <Letter key={key} value={this.state.letters[key]} />
+          <Letter
+            key={key}
+            parentKey={key}
+            value={this.state.letters[key]}
+            deleteLetter={this.deleteLetter}
+          />
         ))}
       </div>
     );

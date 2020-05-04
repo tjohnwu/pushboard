@@ -1,6 +1,12 @@
 .letter {
   position: absolute;
   font-size: 3em;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   color: white;
+}
+
+.trashcan {
+  position: absolute;
+  font-size: 10px;
+  background-color: black;
 }

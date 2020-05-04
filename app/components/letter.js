@@ -11,6 +11,7 @@ class Letter extends React.Component {
     };
 
     this.letterComponent = React.createRef();
+    this.props.deleteLetter.bind(this);
   }
 
   componentDidMount() {
@@ -55,19 +56,31 @@ class Letter extends React.Component {
     }
   }
 
+  deleteSelf() {
+    this.props.deleteLetter(this.props.parentKey);
+  }
+
   render() {
+    const trashComponent = (
+      <div className="trashcan" onClick={() => this.deleteSelf()}>
+        &#128465;
+      </div>
+    );
     return (
       <div
         ref={this.letterComponent}
+        onContextMenu={() => this.onRightClick()}
         onMouseOver={() => this.setState({ dragged: true })}
-        onMouseOut={() => this.setState({ dragged: false })}
+        onMouseLeave={() => this.setState({ dragged: false })}
         style={{
           backgroundColor: this.state.dragged ? "blue" : "black",
           top: this.props.startingY,
           left: this.props.startingX,
+          padding: "10px",
         }}
         className={this.state.className}
       >
+        {this.state.dragged ? trashComponent : null}
         {this.props.value}
       </div>
     );
