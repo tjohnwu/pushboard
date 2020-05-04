@@ -1,5 +1,6 @@
 .letter {
   position: absolute;
   font-size: 3em;
+  font-family: 'Courier New', Courier, monospace;
   color: white;
 }

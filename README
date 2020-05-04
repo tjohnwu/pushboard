@@ -19,7 +19,7 @@ Board Component
 
 Letter Components
  x Create Base Component
- o Font Selection (monospace required "Courier New")
+ x Font Selection (monospace required "Courier New")
  o Letter deletion logic
  o Letter placement logic (place somewhere in the middle of the board)
  o Letter movable on mount logic (instead of on first click)
