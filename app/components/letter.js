@@ -1,5 +1,5 @@
-import React from 'react';
-import './letter.css';
+import React from "react";
+import "./letter.css";
 
 class Letter extends React.Component {
   constructor(props) {
@@ -7,18 +7,21 @@ class Letter extends React.Component {
 
     this.state = {
       dragged: false,
-      className: 'letter'
+      className: "letter",
     };
 
     this.letterComponent = React.createRef();
-  };
+  }
 
   componentDidMount() {
     this.stickyToMouse(this.letterComponent.current);
   }
 
   stickyToMouse(item) {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    var pos1 = 0,
+      pos2 = 0,
+      pos3 = 0,
+      pos4 = 0;
     item.onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
@@ -41,8 +44,8 @@ class Letter extends React.Component {
       pos3 = e.clientX;
       pos4 = e.clientY;
       // set the element's new position:
-      item.style.top = (item.offsetTop - pos2) + "px";
-      item.style.left = (item.offsetLeft - pos1) + "px";
+      item.style.top = item.offsetTop - pos2 + "px";
+      item.style.left = item.offsetLeft - pos1 + "px";
     }
 
     function closeDragElement() {
@@ -56,14 +59,23 @@ class Letter extends React.Component {
     return (
       <div
         ref={this.letterComponent}
-        onMouseOver={() => this.setState({dragged: true})}
-        onMouseOut={() => this.setState({dragged: false})}
-        style={{backgroundColor: this.state.dragged ? 'blue' : 'black'}}
-        className={this.state.className}>
+        onMouseOver={() => this.setState({ dragged: true })}
+        onMouseOut={() => this.setState({ dragged: false })}
+        style={{
+          backgroundColor: this.state.dragged ? "blue" : "black",
+          top: this.props.startingY,
+          left: this.props.startingX,
+        }}
+        className={this.state.className}
+      >
         {this.props.value}
       </div>
-    )
+    );
   }
 }
+Letter.defaultProps = {
+  startingX: 100,
+  startingY: 100,
+};
 
 export default Letter;

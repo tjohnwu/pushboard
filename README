@@ -21,7 +21,7 @@ Letter Components
  x Create Base Component
  x Font Selection (monospace required "Courier New")
  o Letter deletion logic
- o Letter placement logic (place somewhere in the middle of the board)
+ x Letter placement logic (place somewhere in the middle of the board)
  x Letter movable on mount logic (instead of on first click)
  - ...
 
