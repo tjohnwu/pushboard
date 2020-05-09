@@ -69,9 +69,9 @@ class Pushboard extends React.Component {
         {Object.keys(this.state.letters).map((key) => (
           <Letter
             key={key}
-            parentKey={key}
             value={this.state.letters[key]}
             deleteLetter={this.deleteLetter}
+            fontsize={this.props.size.fontsize}
             startingX={((key % maxCharactersHorizontal) + 1) * 50}
             startingY={
               ((Math.floor(key / maxCharactersHorizontal) %
@@ -87,7 +87,7 @@ class Pushboard extends React.Component {
 }
 
 Pushboard.Size = {
-  DEFAULT: {board_width:400, board_height:600}
+  DEFAULT: {board_width:400, board_height:600, letter_font_size:'3em'}
 }
 
 Pushboard.defaultProps = {
