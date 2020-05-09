@@ -15,6 +15,7 @@ Feature List
 ==================================================================
 Board Component
  x Create Base Board
+ o Specific board sizing
  - Line Backgrounds
 
 Letter Components
