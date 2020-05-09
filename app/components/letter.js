@@ -76,7 +76,7 @@ class Letter extends React.Component {
           backgroundColor: this.state.dragged ? "blue" : "#00000000",
           top: this.props.startingY,
           left: this.props.startingX,
-          fontsize: this.props.fontsize,
+          fontSize: this.props.fontsize,
           zIndex: this.state.dragged ? 1 : 0,
         }}
         className={this.state.className}
