@@ -78,6 +78,7 @@ class Pushboard extends React.Component {
         {Object.keys(this.state.letters).map((key) => (
           <Letter
             key={key}
+            parentKey={key}
             value={this.state.letters[key]}
             deleteLetter={this.deleteLetter}
             fontsize={this.props.size.letter_font_size}
