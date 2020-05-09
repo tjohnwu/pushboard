@@ -61,7 +61,7 @@ class Pushboard extends React.Component {
     var maxCharactersVertical = 10;
     return (
       <div className="pushboard">
-        <Board width={400} height={600}/>
+        <Board width={this.props.size.board_width} height={this.props.size.board_height}/>
         <Factory
           addLetters={this.addLetters}
           clearLetters={this.clearLetters}
@@ -85,5 +85,13 @@ class Pushboard extends React.Component {
     );
   }
 }
+
+Pushboard.Size = {
+  DEFAULT: {board_width:400, board_height:600}
+}
+
+Pushboard.defaultProps = {
+  size: Pushboard.Size.DEFAULT,
+};
 
 export default Pushboard;

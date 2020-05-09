@@ -85,6 +85,7 @@ class Letter extends React.Component {
     );
   }
 }
+
 Letter.defaultProps = {
   startingX: 100,
   startingY: 100,
