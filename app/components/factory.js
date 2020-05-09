@@ -6,17 +6,17 @@ import "./factory.css";
 class Factory extends React.Component {
   constructor(props) {
     super(props);
-    this.props.addLetter.bind(this);
+    this.props.addLetters.bind(this);
     this.props.clearLetters.bind(this);
-    this.handleAddLetterClick = this.handleAddLetterClick.bind(this);
+    this.handleAddLettersClick = this.handleAddLettersClick.bind(this);
     this.handleLetterClear = this.handleLetterClear.bind(this);
 
     this.letterInputComponent = React.createRef();
   }
 
-  handleAddLetterClick(e) {
+  handleAddLettersClick(e) {
     var value = this.letterInputComponent.current.value;
-    this.props.addLetter(value);
+    this.props.addLetters(value);
   }
 
   handleLetterClear(e) {
@@ -29,13 +29,12 @@ class Factory extends React.Component {
         <input
           className="letter-input"
           type="input"
-          maxLength="1"
           ref={this.letterInputComponent}
         />
         <input
           type="button"
-          value="Add Letter"
-          onClick={this.handleAddLetterClick}
+          value="Add Letters"
+          onClick={this.handleAddLettersClick}
         />
         <input
           type="button"
