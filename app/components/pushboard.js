@@ -18,7 +18,6 @@ class Pushboard extends React.Component {
     })();
 
     var letters = {};
-    letters[this.getKey()] = "a";
     this.state = {
       letters: letters,
     };
@@ -42,6 +41,11 @@ class Pushboard extends React.Component {
     this.setState((state) => {
       return { letters: {} };
     });
+
+    this.getKey = (() => {
+      var counter = 0;
+      return () => counter++;
+    })();
   }
 
   deleteLetter(key) {
@@ -53,6 +57,8 @@ class Pushboard extends React.Component {
   }
 
   render() {
+    var maxCharactersHorizontal = 7;
+    var maxCharactersVertical = 10;
     return (
       <div id="pushboard" className="pushboard">
         <Board />
@@ -63,6 +69,8 @@ class Pushboard extends React.Component {
             parentKey={key}
             value={this.state.letters[key]}
             deleteLetter={this.deleteLetter}
+            startingX={(key % maxCharactersHorizontal + 1) * 50}
+            startingY={(Math.floor(key / maxCharactersHorizontal) % maxCharactersVertical + 1) * 50}
           />
         ))}
       </div>
