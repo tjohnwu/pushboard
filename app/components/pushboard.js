@@ -57,11 +57,20 @@ class Pushboard extends React.Component {
   }
 
   render() {
-    var maxCharactersHorizontal = Math.floor(this.props.size.board_width / this.props.size.letter_font_size) - 1;
-    var maxCharactersVertical = Math.floor(this.props.size.board_height / this.props.size.letter_font_size) - 1;
+    var maxCharactersHorizontal =
+      Math.floor(
+        this.props.size.board_width / this.props.size.letter_font_size
+      ) - 1;
+    var maxCharactersVertical =
+      Math.floor(
+        this.props.size.board_height / this.props.size.letter_font_size
+      ) - 1;
     return (
       <div className="pushboard">
-        <Board width={this.props.size.board_width} height={this.props.size.board_height}/>
+        <Board
+          width={this.props.size.board_width}
+          height={this.props.size.board_height}
+        />
         <Factory
           addLetters={this.addLetters}
           clearLetters={this.clearLetters}
@@ -72,7 +81,10 @@ class Pushboard extends React.Component {
             value={this.state.letters[key]}
             deleteLetter={this.deleteLetter}
             fontsize={this.props.size.letter_font_size}
-            startingX={((key % maxCharactersHorizontal) + 1) * this.props.size.letter_font_size}
+            startingX={
+              ((key % maxCharactersHorizontal) + 1) *
+              this.props.size.letter_font_size
+            }
             startingY={
               ((Math.floor(key / maxCharactersHorizontal) %
                 maxCharactersVertical) +
@@ -87,8 +99,8 @@ class Pushboard extends React.Component {
 }
 
 Pushboard.Size = {
-  DEFAULT: {board_width:400, board_height:600, letter_font_size:50}
-}
+  DEFAULT: { board_width: 400, board_height: 600, letter_font_size: 50 },
+};
 
 Pushboard.defaultProps = {
   size: Pushboard.Size.DEFAULT,
