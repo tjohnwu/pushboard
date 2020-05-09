@@ -61,7 +61,7 @@ class Pushboard extends React.Component {
     var maxCharactersVertical = 10;
     return (
       <div className="pushboard">
-        <Board />
+        <Board width={400} height={600}/>
         <Factory
           addLetters={this.addLetters}
           clearLetters={this.clearLetters}
