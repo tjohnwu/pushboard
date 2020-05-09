@@ -25,7 +25,7 @@ class Pushboard extends React.Component {
 
   addLetters(sentence) {
     var additionalLetters = {};
-    var characters = sentence.replace(/\s/g, '').split('');
+    var characters = sentence.replace(/\s/g, "").split("");
     characters.forEach((element, i) => {
       var key = this.getKey();
       additionalLetters[key] = element;
@@ -62,15 +62,23 @@ class Pushboard extends React.Component {
     return (
       <div id="pushboard" className="pushboard">
         <Board />
-        <Factory addLetters={this.addLetters} clearLetters={this.clearLetters} />
+        <Factory
+          addLetters={this.addLetters}
+          clearLetters={this.clearLetters}
+        />
         {Object.keys(this.state.letters).map((key) => (
           <Letter
             key={key}
             parentKey={key}
             value={this.state.letters[key]}
             deleteLetter={this.deleteLetter}
-            startingX={(key % maxCharactersHorizontal + 1) * 50}
-            startingY={(Math.floor(key / maxCharactersHorizontal) % maxCharactersVertical + 1) * 50}
+            startingX={((key % maxCharactersHorizontal) + 1) * 50}
+            startingY={
+              ((Math.floor(key / maxCharactersHorizontal) %
+                maxCharactersVertical) +
+                1) *
+              50
+            }
           />
         ))}
       </div>
