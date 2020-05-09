@@ -31,6 +31,7 @@ Letter Components
  Factory Component
  x Create Base Component
  x Letter manufacturing logic
+ o Letter => Word input
  o Letter deletion mode (a mode where clicking on a letter would delete it)
  o Undo button
  o Style
