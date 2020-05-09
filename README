@@ -24,14 +24,14 @@ Letter Components
  x Letter movable on mount logic (instead of on first click)
  x Letter deletion logic (~~right click for now~~, can't disable menu, so created
     a new component to handle this AKA trashcan)
- o Dynamic letter placement (place new letter next to previous letter)
+ x Dynamic letter placement (place new letter next to previous letter)
  o Bring letter to focus on hover
  - ...
 
  Factory Component
  x Create Base Component
  x Letter manufacturing logic
- o Letter => Word input
+ x Letter => Word input
  o Letter deletion mode (a mode where clicking on a letter would delete it)
  o Undo button
  o Style
