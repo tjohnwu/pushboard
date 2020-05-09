@@ -60,7 +60,7 @@ class Pushboard extends React.Component {
     var maxCharactersHorizontal = 7;
     var maxCharactersVertical = 10;
     return (
-      <div id="pushboard" className="pushboard">
+      <div className="pushboard">
         <Board />
         <Factory
           addLetters={this.addLetters}
