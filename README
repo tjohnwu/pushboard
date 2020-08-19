@@ -8,6 +8,8 @@ npm start
 Next steps let's add a second component and see if drag and drop
 still works
 
+`prettier <filename> --write` for formatting as vscode is borked
+
 ******************************************************************
 Project Plan
 ==================================================================

@@ -61,6 +61,7 @@ class Letter extends React.Component {
   }
 
   render() {
+    // Uses unicode for trashcan emoji
     const trashComponent = (
       <div className="trashcan" onClick={() => this.deleteSelf()}>
         &#128465;
