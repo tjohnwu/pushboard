@@ -25,8 +25,7 @@ class Letter extends React.Component {
       previousY = 0,
       initialOffsetLeft = 0,
       initialOffsetTop = 0;
-    const
-      maxLetterOffsetLeft = props.maxLetterOffsetLeft,
+    const maxLetterOffsetLeft = props.maxLetterOffsetLeft,
       maxLetterOffsetTop = props.maxLetterOffsetTop,
       minLetterOffsetLeft = props.minLetterOffsetLeft,
       minLetterOffsetTop = props.minLetterOffsetTop;
@@ -51,8 +50,8 @@ class Letter extends React.Component {
       e = e || window.event;
       e.preventDefault();
       // calculate the new cursor position:
-      currentX = previousX- e.clientX;
-      currentY = previousY- e.clientY;
+      currentX = previousX - e.clientX;
+      currentY = previousY - e.clientY;
       previousX = e.clientX;
       previousY = e.clientY;
 
@@ -65,7 +64,12 @@ class Letter extends React.Component {
     }
 
     function closeDragElement() {
-      if (item.offsetLeft > maxLetterOffsetLeft || item.offsetLeft < minLetterOffsetLeft || item.offsetTop > maxLetterOffsetTop || item.offsetTop < minLetterOffsetTop) {
+      if (
+        item.offsetLeft > maxLetterOffsetLeft ||
+        item.offsetLeft < minLetterOffsetLeft ||
+        item.offsetTop > maxLetterOffsetTop ||
+        item.offsetTop < minLetterOffsetTop
+      ) {
         setCoordStyle(initialOffsetTop, initialOffsetLeft);
       }
 

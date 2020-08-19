@@ -1,7 +1,5 @@
 ---
-
 Setup Notes
-
 ---
 
 This will load the webapp into localhost
@@ -46,8 +44,8 @@ o Style
 
 Drag and Drop functionality
 x Drag and drop letter anywhere on board
+x Drag and drop off board resets letter
 
-- Drag and drop off board resets letter
 - Drag and drop styling
 - Drag and drop letter based on line component
   - Sticky drag and drop based on line component
