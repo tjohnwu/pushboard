@@ -67,6 +67,11 @@ class Letter extends React.Component {
         &#128465;
       </div>
     );
+
+    // This is a hack to make it work
+    var offsetLeft = document.getElementsByClassName("board")[0].offsetLeft;
+    var offsetTop=  document.getElementsByClassName("board")[0].offsetTop;
+
     return (
       <div
         ref={this.letterComponent}
@@ -75,8 +80,8 @@ class Letter extends React.Component {
         onMouseLeave={() => this.setState({ dragged: false })}
         style={{
           backgroundColor: this.state.dragged ? "blue" : "#00000000",
-          top: this.props.startingY,
-          left: this.props.startingX,
+          top: this.props.startingY + offsetTop,
+          left: this.props.startingX + offsetLeft,
           fontSize: this.props.fontsize,
           zIndex: this.state.dragged ? 1 : 0,
         }}
