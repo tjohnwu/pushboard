@@ -33,13 +33,17 @@ Letter Components
  x Create Base Component
  x Letter manufacturing logic
  x Letter => Word input
- o Letter deletion mode (a mode where clicking on a letter would delete it)
+ x Letter deletion mode (a mode where clicking on a letter would delete it)
  o Undo button
  o Style
 
 Drag and Drop functionality
  x Drag and drop letter anywhere on board
+ - Drag and drop off board resets letter
  - Drag and drop styling
  - Drag and drop letter based on line component
    - Sticky drag and drop based on line component
  -
+
+Mobile support
+ o Figure out how this will look
