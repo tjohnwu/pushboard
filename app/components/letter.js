@@ -15,22 +15,33 @@ class Letter extends React.Component {
   }
 
   componentDidMount() {
-    this.stickyToMouse(this.letterComponent.current);
+    this.stickyToMouse(this.letterComponent.current, this.props);
   }
 
-  stickyToMouse(item) {
-    var pos1 = 0,
-      pos2 = 0,
-      pos3 = 0,
-      pos4 = 0;
+  stickyToMouse(item, props) {
+    var currentX = 0,
+      currentY = 0,
+      previousX = 0,
+      previousY = 0,
+      initialOffsetLeft = 0,
+      initialOffsetTop = 0;
+    const
+      maxLetterOffsetLeft = props.maxLetterOffsetLeft,
+      maxLetterOffsetTop = props.maxLetterOffsetTop,
+      minLetterOffsetLeft = props.minLetterOffsetLeft,
+      minLetterOffsetTop = props.minLetterOffsetTop;
+
     item.onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
       e = e || window.event;
       e.preventDefault();
       // get the mouse cursor position at startup:
-      pos3 = e.clientX;
-      pos4 = e.clientY;
+      previousX = e.clientX;
+      previousY = e.clientY;
+
+      initialOffsetLeft = item.offsetLeft;
+      initialOffsetTop = item.offsetTop;
       document.onmouseup = closeDragElement;
       // call a function whenever the cursor moves:
       document.onmousemove = elementDrag;
@@ -40,16 +51,24 @@ class Letter extends React.Component {
       e = e || window.event;
       e.preventDefault();
       // calculate the new cursor position:
-      pos1 = pos3 - e.clientX;
-      pos2 = pos4 - e.clientY;
-      pos3 = e.clientX;
-      pos4 = e.clientY;
-      // set the element's new position:
-      item.style.top = item.offsetTop - pos2 + "px";
-      item.style.left = item.offsetLeft - pos1 + "px";
+      currentX = previousX- e.clientX;
+      currentY = previousY- e.clientY;
+      previousX = e.clientX;
+      previousY = e.clientY;
+
+      setCoordStyle(item.offsetTop - currentY, item.offsetLeft - currentX);
+    }
+
+    function setCoordStyle(top, left) {
+      item.style.top = top + "px";
+      item.style.left = left + "px";
     }
 
     function closeDragElement() {
+      if (item.offsetLeft > maxLetterOffsetLeft || item.offsetLeft < minLetterOffsetLeft || item.offsetTop > maxLetterOffsetTop || item.offsetTop < minLetterOffsetTop) {
+        setCoordStyle(initialOffsetTop, initialOffsetLeft);
+      }
+
       // stop moving when mouse button is released:
       document.onmouseup = null;
       document.onmousemove = null;

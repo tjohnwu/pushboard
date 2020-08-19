@@ -85,6 +85,11 @@ class Pushboard extends React.Component {
         this.props.size.board_height / this.props.size.letter_font_size
       ) - 1;
 
+    var minLetterOffsetLeft = this.state.boardOffsetLeft;
+    var maxLetterOffsetLeft = minLetterOffsetLeft + this.props.size.board_width;
+    var minLetterOffsetTop = this.state.boardOffsetTop;
+    var maxLetterOffsetTop = minLetterOffsetTop + this.props.size.board_height;
+
     return (
       <div className="pushboard">
         <Board
@@ -99,6 +104,10 @@ class Pushboard extends React.Component {
         {Object.keys(this.state.letters).map((key) => (
           <Letter
             key={key}
+            minLetterOffsetLeft={minLetterOffsetLeft}
+            minLetterOffsetTop={minLetterOffsetTop}
+            maxLetterOffsetLeft={maxLetterOffsetLeft}
+            maxLetterOffsetTop={maxLetterOffsetTop}
             parentKey={key}
             value={this.state.letters[key]}
             deleteLetter={this.deleteLetter}
