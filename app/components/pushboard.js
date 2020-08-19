@@ -39,8 +39,6 @@ class Pushboard extends React.Component {
     this.setState((state) => {
       return {
         letters: newState,
-        boardOffsetLeft: state.boardOffsetLeft,
-        boardOffsetTop: state.boardOffsetTop,
       };
     });
   }
@@ -49,8 +47,6 @@ class Pushboard extends React.Component {
     this.setState((state) => {
       return {
         letters: {},
-        boardOffsetLeft: state.boardOffsetLeft,
-        boardOffsetTop: state.boardOffsetTop,
       };
     });
 
@@ -66,8 +62,6 @@ class Pushboard extends React.Component {
     this.setState((state) => {
       return {
         letters: newLetters,
-        boardOffsetLeft: state.boardOffsetLeft,
-        boardOffsetTop: state.boardOffsetTop,
       };
     });
   }
@@ -75,7 +69,6 @@ class Pushboard extends React.Component {
   componentDidMount() {
     this.setState((state) => {
       return {
-        letters: state.letters,
         boardOffsetLeft: this.boardRef.current.offsetLeft,
         boardOffsetTop: this.boardRef.current.offsetTop,
       };
