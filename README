@@ -1,6 +1,8 @@
-******************************************************************
+---
+
 Setup Notes
-******************************************************************
+
+---
 
 This will load the webapp into localhost
 npm start
@@ -10,42 +12,46 @@ still works
 
 `prettier <filename> --write` for formatting as vscode is borked
 
-******************************************************************
-Project Plan
-==================================================================
-Feature List
-==================================================================
+---
+
+# Project Plan
+
+# Feature List
+
 Board Component
- x Create Base Board
- o Specific board sizing
- - Line Backgrounds
+x Create Base Board
+o Specific board sizing
+
+- Line Backgrounds
 
 Letter Components
- x Create Base Component
- x Font Selection (monospace required "Courier New")
- x Letter placement logic (place somewhere in the middle of the board)
- x Letter movable on mount logic (instead of on first click)
- x Letter deletion logic (~~right click for now~~, can't disable menu, so created
-    a new component to handle this AKA trashcan)
- x Dynamic letter placement (place new letter next to previous letter)
- o Bring letter to focus on hover
- - ...
+x Create Base Component
+x Font Selection (monospace required "Courier New")
+x Letter placement logic (place somewhere in the middle of the board)
+x Letter movable on mount logic (instead of on first click)
+x Letter deletion logic (~~right click for now~~, can't disable menu, so created
+a new component to handle this AKA trashcan)
+x Dynamic letter placement (place new letter next to previous letter)
+o Bring letter to focus on hover
 
- Factory Component
- x Create Base Component
- x Letter manufacturing logic
- x Letter => Word input
- x Letter deletion mode (a mode where clicking on a letter would delete it)
- o Undo button
- o Style
+- ...
+
+Factory Component
+x Create Base Component
+x Letter manufacturing logic
+x Letter => Word input
+x Letter deletion mode (a mode where clicking on a letter would delete it)
+o Undo button
+o Style
 
 Drag and Drop functionality
- x Drag and drop letter anywhere on board
- - Drag and drop off board resets letter
- - Drag and drop styling
- - Drag and drop letter based on line component
-   - Sticky drag and drop based on line component
- -
+x Drag and drop letter anywhere on board
+
+- Drag and drop off board resets letter
+- Drag and drop styling
+- Drag and drop letter based on line component
+  - Sticky drag and drop based on line component
+-
 
 Mobile support
- o Figure out how this will look
+o Figure out how this will look

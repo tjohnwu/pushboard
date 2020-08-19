@@ -37,13 +37,21 @@ class Pushboard extends React.Component {
 
     var newState = Object.assign({}, this.state.letters, additionalLetters);
     this.setState((state) => {
-      return { letters: newState, boardOffsetLeft: state.boardOffsetLeft, boardOffsetTop: state.boardOffsetTop};
+      return {
+        letters: newState,
+        boardOffsetLeft: state.boardOffsetLeft,
+        boardOffsetTop: state.boardOffsetTop,
+      };
     });
   }
 
   clearLetters() {
     this.setState((state) => {
-      return { letters: {}, boardOffsetLeft: state.boardOffsetLeft, boardOffsetTop: state.boardOffsetTop};
+      return {
+        letters: {},
+        boardOffsetLeft: state.boardOffsetLeft,
+        boardOffsetTop: state.boardOffsetTop,
+      };
     });
 
     this.getKey = (() => {
@@ -56,13 +64,21 @@ class Pushboard extends React.Component {
     var newLetters = Object.assign(this.state.letters);
     delete newLetters[key];
     this.setState((state) => {
-      return { letters: newLetters, boardOffsetLeft: state.boardOffsetLeft, boardOffsetTop: state.boardOffsetTop};
+      return {
+        letters: newLetters,
+        boardOffsetLeft: state.boardOffsetLeft,
+        boardOffsetTop: state.boardOffsetTop,
+      };
     });
   }
 
   componentDidMount() {
     this.setState((state) => {
-      return { letters: state.letters, boardOffsetLeft: this.boardRef.current.offsetLeft, boardOffsetTop: this.boardRef.current.offsetTop};
+      return {
+        letters: state.letters,
+        boardOffsetLeft: this.boardRef.current.offsetLeft,
+        boardOffsetTop: this.boardRef.current.offsetTop,
+      };
     });
   }
 
@@ -96,13 +112,15 @@ class Pushboard extends React.Component {
             fontsize={this.props.size.letter_font_size}
             startingX={
               ((key % maxCharactersHorizontal) + 1) *
-              this.props.size.letter_font_size + this.state.boardOffsetLeft
+                this.props.size.letter_font_size +
+              this.state.boardOffsetLeft
             }
             startingY={
               ((Math.floor(key / maxCharactersHorizontal) %
                 maxCharactersVertical) +
                 1) *
-              this.props.size.letter_font_size + this.state.boardOffsetTop
+                this.props.size.letter_font_size +
+              this.state.boardOffsetTop
             }
           />
         ))}

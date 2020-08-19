@@ -8,7 +8,7 @@ class BoardComponent extends React.Component {
   }
 
   render() {
-    const {forwardRef, ...rest} = this.props;
+    const { forwardRef, ...rest } = this.props;
     return (
       <div
         className="board"
@@ -24,6 +24,6 @@ class BoardComponent extends React.Component {
 
 const Board = React.forwardRef((props, ref) => {
   return <BoardComponent forwardRef={ref} {...props} />;
-})
+});
 
 export default Board;
