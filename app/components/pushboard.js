@@ -92,14 +92,14 @@ class Pushboard extends React.Component {
 
     return (
       <div className="pushboard">
+        <Factory
+          addLetters={this.addLetters}
+          clearLetters={this.clearLetters}
+        />
         <Board
           width={this.props.size.board_width}
           height={this.props.size.board_height}
           ref={this.boardRef}
-        />
-        <Factory
-          addLetters={this.addLetters}
-          clearLetters={this.clearLetters}
         />
         {Object.keys(this.state.letters).map((key) => (
           <Letter

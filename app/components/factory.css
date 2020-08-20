@@ -1,13 +1,12 @@
 .factory {
-  width: 200px;
-  height: 200px;
   border: 10px solid black;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 10px;
+  flex-direction: row;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .letter-input {
-  text-align: center;
+  text-size-adjust: auto;
+  flex: 1;
 }
