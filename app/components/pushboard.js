@@ -22,6 +22,8 @@ class Pushboard extends React.Component {
       letters: letters,
       boardOffsetLeft: 0,
       boardOffsetTop: 0,
+      boardWidth: 0,
+      boardHeight: 0,
     };
 
     this.boardRef = React.createRef();
@@ -71,36 +73,43 @@ class Pushboard extends React.Component {
       return {
         boardOffsetLeft: this.boardRef.current.offsetLeft,
         boardOffsetTop: this.boardRef.current.offsetTop,
+        boardHeight: this.boardRef.current.clientHeight,
+        boardWidth: this.boardRef.current.clientWidth,
       };
     });
   }
 
   render() {
-    var maxCharactersHorizontal =
+    const maxCharactersHorizontal =
       Math.floor(
-        this.props.size.board_width / this.props.size.letter_font_size
+        this.state.boardWidth / this.props.letter_font_size
       ) - 1;
-    var maxCharactersVertical =
+    const maxCharactersVertical =
       Math.floor(
-        this.props.size.board_height / this.props.size.letter_font_size
+        this.state.boardHeight / this.props.letter_font_size
       ) - 1;
 
-    var minLetterOffsetLeft = this.state.boardOffsetLeft;
-    var maxLetterOffsetLeft = minLetterOffsetLeft + this.props.size.board_width;
-    var minLetterOffsetTop = this.state.boardOffsetTop;
-    var maxLetterOffsetTop = minLetterOffsetTop + this.props.size.board_height;
+    const minLetterOffsetLeft = this.state.boardOffsetLeft;
+    const maxLetterOffsetLeft = minLetterOffsetLeft + this.state.boardWidth;
+    const minLetterOffsetTop = this.state.boardOffsetTop;
+    const maxLetterOffsetTop = minLetterOffsetTop + this.state.boardHeight;
+
+    var style = {};
+    if (this.props.board_height) {
+      style["height"] = this.props.board_height;
+    }
+
+    if (this.props.board_width) {
+      style["width"] = this.props.board_width;
+    }
 
     return (
-      <div className="pushboard">
+      <div className="pushboard" style={style}>
         <Factory
           addLetters={this.addLetters}
           clearLetters={this.clearLetters}
         />
-        <Board
-          width={this.props.size.board_width}
-          height={this.props.size.board_height}
-          ref={this.boardRef}
-        />
+        <Board ref={this.boardRef}/>
         {Object.keys(this.state.letters).map((key) => (
           <Letter
             key={key}
@@ -111,17 +120,17 @@ class Pushboard extends React.Component {
             parentKey={key}
             value={this.state.letters[key]}
             deleteLetter={this.deleteLetter}
-            fontsize={this.props.size.letter_font_size}
+            fontsize={this.props.letter_font_size}
             startingX={
               ((key % maxCharactersHorizontal) + 1) *
-                this.props.size.letter_font_size +
+                this.props.letter_font_size +
               this.state.boardOffsetLeft
             }
             startingY={
               ((Math.floor(key / maxCharactersHorizontal) %
                 maxCharactersVertical) +
                 1) *
-                this.props.size.letter_font_size +
+                this.props.letter_font_size +
               this.state.boardOffsetTop
             }
           />
@@ -131,12 +140,10 @@ class Pushboard extends React.Component {
   }
 }
 
-Pushboard.Size = {
-  DEFAULT: { board_width: 400, board_height: 600, letter_font_size: 50 },
-};
-
 Pushboard.defaultProps = {
-  size: Pushboard.Size.DEFAULT,
+  board_width: null,
+  board_height: null,
+  letter_font_size: 50,
 };
 
 export default Pushboard;
