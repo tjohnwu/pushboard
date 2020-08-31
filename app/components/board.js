@@ -9,12 +9,7 @@ class BoardComponent extends React.Component {
 
   render() {
     const { forwardRef, ...rest } = this.props;
-    return (
-        <div
-          className="board"
-          ref={forwardRef}
-        />
-    );
+    return <div className="board" ref={forwardRef} />;
   }
 }
 

@@ -15,7 +15,7 @@ class Letter extends React.Component {
   }
 
   componentDidMount() {
-    const isTouchDevice = 'ontouchstart' in document.documentElement;
+    const isTouchDevice = "ontouchstart" in document.documentElement;
     if (isTouchDevice) {
       this.stickyToTouch(this.letterComponent.current, this.props);
     }

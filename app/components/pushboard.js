@@ -81,13 +81,9 @@ class Pushboard extends React.Component {
 
   render() {
     const maxCharactersHorizontal =
-      Math.floor(
-        this.state.boardWidth / this.props.letter_font_size
-      ) - 1;
+      Math.floor(this.state.boardWidth / this.props.letter_font_size) - 1;
     const maxCharactersVertical =
-      Math.floor(
-        this.state.boardHeight / this.props.letter_font_size
-      ) - 1;
+      Math.floor(this.state.boardHeight / this.props.letter_font_size) - 1;
 
     const minLetterOffsetLeft = this.state.boardOffsetLeft;
     const maxLetterOffsetLeft = minLetterOffsetLeft + this.state.boardWidth;
@@ -109,7 +105,7 @@ class Pushboard extends React.Component {
           addLetters={this.addLetters}
           clearLetters={this.clearLetters}
         />
-        <Board ref={this.boardRef}/>
+        <Board ref={this.boardRef} />
         {Object.keys(this.state.letters).map((key) => (
           <Letter
             key={key}
