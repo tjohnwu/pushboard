@@ -7,6 +7,11 @@
 }
 
 .letter-input {
-  text-size-adjust: auto;
-  flex: 1;
+  font-size: 7vw;
+  min-width: 0;
+}
+
+.factory-button {
+  font-size: 3em;
+  white-space: normal;
 }

@@ -32,11 +32,13 @@ class Factory extends React.Component {
           ref={this.letterInputComponent}
         />
         <input
+          className="factory-button"
           type="button"
           value="Add Letters"
           onClick={this.handleAddLettersClick}
         />
         <input
+          className="factory-button"
           type="button"
           value="Clear All"
           onClick={this.handleLetterClear}
