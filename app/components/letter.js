@@ -15,7 +15,75 @@ class Letter extends React.Component {
   }
 
   componentDidMount() {
+    const isTouchDevice = 'ontouchstart' in document.documentElement;
+    if (isTouchDevice) {
+      this.stickyToTouch(this.letterComponent.current, this.props);
+    }
+
     this.stickyToMouse(this.letterComponent.current, this.props);
+  }
+
+  // TODO refactor stickyToTouch and stickyToMouse to depend on the same logic
+  stickyToTouch(item, props) {
+    var currentX = 0,
+      currentY = 0,
+      previousX = 0,
+      previousY = 0,
+      initialOffsetLeft = 0,
+      initialOffsetTop = 0;
+    const maxLetterOffsetLeft = props.maxLetterOffsetLeft,
+      maxLetterOffsetTop = props.maxLetterOffsetTop,
+      minLetterOffsetLeft = props.minLetterOffsetLeft,
+      minLetterOffsetTop = props.minLetterOffsetTop;
+
+    item.ontouchstart = dragMouseDown;
+
+    function dragMouseDown(e) {
+      e = e || window.event;
+      e.preventDefault();
+      const touchLocation = e.targetTouches[0];
+      // get the mouse cursor position at startup:
+      previousX = touchLocation.pageX;
+      previousY = touchLocation.pageY;
+
+      initialOffsetLeft = item.offsetLeft;
+      initialOffsetTop = item.offsetTop;
+      document.ontouchend = closeDragElement;
+      // call a function whenever the cursor moves:
+      document.ontouchmove = elementDrag;
+    }
+
+    function elementDrag(e) {
+      e = e || window.event;
+      const touchLocation = e.targetTouches[0];
+      // calculate the new cursor position:
+      currentX = previousX - touchLocation.pageX;
+      currentY = previousY - touchLocation.pageY;
+      previousX = touchLocation.pageX;
+      previousY = touchLocation.pageY;
+
+      setCoordStyle(item.offsetTop - currentY, item.offsetLeft - currentX);
+    }
+
+    function setCoordStyle(top, left) {
+      item.style.top = top + "px";
+      item.style.left = left + "px";
+    }
+
+    function closeDragElement() {
+      if (
+        item.offsetLeft > maxLetterOffsetLeft ||
+        item.offsetLeft < minLetterOffsetLeft ||
+        item.offsetTop > maxLetterOffsetTop ||
+        item.offsetTop < minLetterOffsetTop
+      ) {
+        setCoordStyle(initialOffsetTop, initialOffsetLeft);
+      }
+
+      // stop moving when mouse button is released:
+      document.ontouchend = null;
+      document.ontouchmove = null;
+    }
   }
 
   stickyToMouse(item, props) {
