@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Pushboard from "./components/pushboard.js";
+import Pushboard from "./components/Pushboard/pushboard.js";
 
 class App extends React.Component {
   render() {
