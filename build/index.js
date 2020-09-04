@@ -2906,7 +2906,7 @@ var Board = react.forwardRef(function (props, ref) {
   }, props));
 });
 
-var css_248z$3 = ".factory {\n  border: 10px solid black;\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  box-sizing: border-box;\n}\n\n.letter-input {\n  font-size: 7vw;\n  min-width: 0;\n}\n\n.factory-button {\n  font-size: 3em;\n  white-space: normal;\n}\n";
+var css_248z$3 = ".factory {\n  border: 10px solid black;\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  box-sizing: border-box;\n}\n\n.letter-input {\n  font-size: 7vw;\n  min-width: 0;\n}\n\n.factory-button {\n  font-size: 3vw;\n  white-space: normal;\n}\n";
 styleInject(css_248z$3);
 
 // manufacture letters.
