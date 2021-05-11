@@ -15,8 +15,8 @@
   },
   "scripts": {
     "create": "webpack",
-    "start": "webpack-dev-server --open",
-    "build": "rollup -c"
+    "start": "node api.js && webpack-dev-server --open",
+    "build": "node api.js && rollup -c"
   },
   "repository": {
     "type": "git",
