@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/origami7/pushboard#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },
